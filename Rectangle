@@ -1,0 +1,48 @@
+import gpdraw.*;
+
+public class Rectangle
+{
+    private double myX;
+    private double myY;
+    private double myWidth;
+    private double myHeight;
+    private DrawingTool pen;
+    private SketchPad paper;
+
+    public void Rectangle(){ //basically no rectangle 
+        myX = 0;
+        myY = 0;
+        myWidth = 0;
+        myHeight = 0;
+        paper = new SketchPad(500,500);
+        pen = new DrawingTool(paper);
+    }
+
+    public void Rectangle(double x, double y, double width, double height){ 
+        myX = x;
+        myY = y;
+        myWidth = x + width;
+        myHeight = y + height;
+        paper = new SketchPad(500,500);
+        pen = new DrawingTool(paper); 
+    }
+    
+    public double getPerimeter(){
+        return ((myWidth-myX) * 2) + ((myHeight-myY) * 2);
+    }
+    
+    public double getArea(){
+        return (myWidth - myX) * (myHeight-myY); //subtract myX from myWidth to get real width value
+                                                //same for height
+    }
+    
+    public void draw(){ //draws the rectangle
+        pen.up();
+        pen.move(myX, myY); //moves to X and Y coordinates
+        pen.down();
+        pen.move(myWidth, myY); //creates bottom line
+        pen.move(myWidth, myHeight); //creates right line
+        pen.move(myX, myHeight); //creates top line
+        pen.move(myX, myY); //creates left line
+    }
+}
