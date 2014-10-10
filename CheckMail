@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class CheckMail{
-    public double[] dims = new double[3];
-    public double weight;
+    private double[] dims = new double[3];
+    private double weight;
+    private double biggest;
+    private double smallest;
+    private double middle;
+    private double girth;
     Scanner userInput = new Scanner(System.in);
-    double biggest;
-    double smallest;
-    double middle;
-    double girth;
     
     public CheckMail(){
         setMail();
@@ -15,14 +15,15 @@ public class CheckMail{
         getGirth();
         
         if((girth+biggest) > 100 && weight > 70){
-            System.out.print("Your package is too big and too heavy, please repackage.");
+            System.out.println("Your package is too big and too heavy, please repackage.");
         } else if((girth+biggest) > 100){
-            System.out.print("Your package is too big, please repackage.");
+            System.out.println("Your package is too big, please repackage.");
         } else if(weight > 70){
-            System.out.print("Your package is too heavy, please repackage.");
+            System.out.println("Your package is too heavy, please repackage.");
         } else{
-            System.out.print("Package accepted.");
+            System.out.println("Package accepted.");
         }
+
     }
     
     public void setMail(){
@@ -52,23 +53,19 @@ public class CheckMail{
     }
     
     public double getGirth(){
-        sortArray();
-        double girth = 2*smallest + 2*middle;
+        girth = (2*smallest) + (2*middle);
         return girth;
     }
     
     public double getSmallest(){
-        sortArray();
         return smallest;
     }
     
     public double getMiddle(){
-        sortArray();
         return middle;
     }
     
     public double getBiggest(){
-        sortArray();
         return biggest;
     }
 }
