@@ -1,3 +1,6 @@
+/**
+ * @author Matt Carreon
+ */
 import java.util.Scanner;
 
 public class CheckMail{
