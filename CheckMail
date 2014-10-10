@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class CheckMail{
+    public double[] dims = new double[3];
+    public double weight;
+    Scanner userInput = new Scanner(System.in);
+    double biggest;
+    double smallest;
+    double middle;
+    double girth;
+    
+    public CheckMail(){
+        setMail();
+        sortArray();
+        getGirth();
+        
+        if((girth+biggest) > 100 && weight > 70){
+            System.out.print("Your package is too big and too heavy, please repackage.");
+        } else if((girth+biggest) > 100){
+            System.out.print("Your package is too big, please repackage.");
+        } else if(weight > 70){
+            System.out.print("Your package is too heavy, please repackage.");
+        } else{
+            System.out.print("Package accepted.");
+        }
+    }
+    
+    public void setMail(){
+        for(int i = 0; i < 3; i++){
+            System.out.print("Enter dimension " + (i+1) + " (inches): ");
+            dims[i] = userInput.nextDouble();
+        }             
+        System.out.print("Enter weight (lbs): ");
+        weight = userInput.nextDouble();
+    }
+    
+    public double[] sortArray(){
+        for(int i = 0; i < 2; i++){
+            for(int j = 1; j < 3; j++){
+                if(dims[i] > dims[j]){
+                    double temp = dims[i];
+                    dims[i] = dims[j];
+                    dims[j] = temp;
+                }
+            }
+        }
+        biggest = dims[2];
+        middle = dims[1];
+        smallest = dims[0];
+        
+        return dims;
+    }
+    
+    public double getGirth(){
+        sortArray();
+        double girth = 2*smallest + 2*middle;
+        return girth;
+    }
+    
+    public double getSmallest(){
+        sortArray();
+        return smallest;
+    }
+    
+    public double getMiddle(){
+        sortArray();
+        return middle;
+    }
+    
+    public double getBiggest(){
+        sortArray();
+        return biggest;
+    }
+}
