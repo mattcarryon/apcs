@@ -9,6 +9,11 @@ public class CheckMail{
     private double girth;
     Scanner userInput = new Scanner(System.in);
     
+    /**
+     * Runs the method to get dimensions and weight, runs a method to sort dimensions in ascending
+     * order, then runs a method to calculate the girth and determines if the package is 
+     * acceptable.
+     */
     public CheckMail(){
         setMail();
         sortArray();
@@ -26,6 +31,9 @@ public class CheckMail{
 
     }
     
+    /**
+     * Asks the user for 3 dimensions (inches) and the weight (lbs) of the package.
+     */
     public void setMail(){
         for(int i = 0; i < 3; i++){
             System.out.print("Enter dimension " + (i+1) + " (inches): ");
@@ -35,6 +43,11 @@ public class CheckMail{
         weight = userInput.nextDouble();
     }
     
+    /**
+     * Sorts the three dimensions into ascending value and then returns the array
+     * 
+     * @return double[] array of dimensions in ascending order
+     */
     public double[] sortArray(){
         for(int i = 0; i < 2; i++){
             for(int j = 1; j < 3; j++){
@@ -52,20 +65,41 @@ public class CheckMail{
         return dims;
     }
     
+    /**
+     * Calculates the girth and then returns it
+     * 
+     * @return double Value of girth
+     */
     public double getGirth(){
         girth = (2*smallest) + (2*middle);
         return girth;
     }
     
+    /**
+     * @return double Value of smallest dimension
+     */
     public double getSmallest(){
         return smallest;
     }
     
+    /**
+     * @return double Value of middle dimension
+     */    
     public double getMiddle(){
         return middle;
     }
     
+    /**
+     * @return double Value of biggest dimension
+     */    
     public double getBiggest(){
         return biggest;
+    }
+    
+    /**
+     * @return double Value of weight
+     */    
+    public double getWeight(){
+        return weight;
     }
 }
