@@ -1,0 +1,104 @@
+/**
+ * 
+ * @author Matt Carreon
+ * 
+ */
+public class RegularPolygon
+{
+    private int myNumSides; // # of sides
+    private double mySideLength; // length of side
+    private double myR; // radius of circumscribed circle
+    private double myr; // radius of inscribed circle
+    
+    /**
+     * Default constructor creates a triangle with side lengths of 100
+     * and calculates radius of inscribed and circumscribed circle.
+     */
+    public RegularPolygon()
+    {
+        myNumSides = 3;
+        mySideLength = 100; 
+        calcr();
+        calcR();
+    }
+    
+    /**
+     * Allows user to set number of sides and side length of polygon
+     * and calculates radius of inscribed and circumscribed circle.
+     * 
+     * @param numSides the number of sides (integer)
+     * @param sideLength the side length of polygon (double)
+     */
+    public RegularPolygon(int numSides, double sideLength){
+        myNumSides = numSides;
+        mySideLength = sideLength;
+        calcr();
+        calcR();
+    }
+    
+    private void calcr(){
+        myr = (0.5)*mySideLength*(1/Math.tan(Math.PI/myNumSides));
+    }
+    private void calcR(){
+        myR = (0.5)*mySideLength*(1/Math.sin(Math.PI/myNumSides));
+    }
+    
+    /**
+     * Calculate vertex angle
+     * @return double value of vertex angle
+     */
+    public double vertexAngle(){
+        double q = ((myNumSides - 2.0)/myNumSides) * 180.0;
+        return q;
+    }
+    
+    /**
+     * Calculates perimeter of polygon
+     * @return double of perimeter value
+     */
+    public double Perimeter(){
+        double p = myNumSides * mySideLength;
+        return p;
+    }
+    
+    /**
+     * Calculates area of perimeter of polygon
+     * @return double of area value
+     */
+    public double Area(){
+        double a = (0.5)*(myNumSides)*(Math.pow(myR,2))*Math.sin((2*Math.PI)/myNumSides);
+        return a;
+    }
+    
+    /**
+     * Returns number of sides of the polygon
+     * @return number of sides of polygon
+     */
+    public double getNumSide(){
+        return myNumSides;
+    }
+    
+    /**
+     * Returns side length value of polygon
+     * @return side length value of polygon
+     */
+    public double getSideLength(){
+        return mySideLength;
+    }
+    
+    /**
+     * Returns the radius of circumscribed circle
+     * @return radius of circumscribed circle
+     */
+    public double getR(){
+        return myR;
+    }
+    
+    /**
+     * Returns the radius of inscribed circle
+     * @return radius of inscribed circle
+     */
+    public double getr(){
+        return myr;
+    }
+}
