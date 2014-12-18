@@ -1,0 +1,67 @@
+import java.util.*;
+import java.io.*;
+import java.lang.Math;
+public class Statistics{
+    private double a;
+    private Scanner in;
+    public void average(){
+        long sum = 0;
+        int counter = 0;
+        
+        try{
+            in = new Scanner(new File("numbers.txt"));
+            while(in.hasNextInt()){
+                sum += in.nextInt();
+                counter ++;
+            }
+        }catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        double average = (double) (sum)/(double) (counter);
+        System.out.printf("Average: %.2f\n", average); //average is 50.70
+    }
+    
+    public void standardDeviation(){
+        average();
+        double sum = 0.0;
+        int counter = 0;
+        try{
+            in = new Scanner(new File("numbers.txt"));
+            while(in.hasNextInt()){
+                double temp = Math.pow((in.nextInt() - a), 2);
+                sum += temp;
+                counter++;
+            }
+        }catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+        double deviation = Math.sqrt(sum/(double) (counter-1));
+        System.out.printf("Standard deviation: %.2f%%\n", deviation);//standard deviation is 58.50%
+    }
+    
+    public void findMode(){
+        int counter = 0;
+        try{
+            in = new Scanner(new File("numbers.txt"));
+            while(in.hasNextInt()){
+                counter++;
+            }
+        }catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    
+    public void makeArray(){
+        int[] nums = new int[];
+        try{
+            in = new Scanner(new File("numbers.txt"));
+            while(in.hasNextInt()){
+                
+            }
+        }catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+
+    }
+}
