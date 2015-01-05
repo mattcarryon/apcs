@@ -1,0 +1,58 @@
+import java.util.*;
+import java.io.*;
+import java.lang.Math;
+public class Compact{
+    int[] numbers = new int[0];
+    
+    public int[] makeArray(){
+        Scanner in;
+        Scanner in2;
+        int counter = 0;
+        try{
+            in = new Scanner(new File("compact.txt"));
+            while(in.hasNextInt()){
+                counter++;
+                in.nextInt();
+            }
+        }catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+        numbers = new int[counter];
+        try{
+            in2 = new Scanner(new File("compact.txt"));
+            for(int i = 0; i < counter; i++){
+                numbers[i] = in2.nextInt();
+            }
+        }catch(IOException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+        return numbers;
+    }
+    
+    public void compactArray(){
+        makeArray();
+        int x = 0;
+        int counter = numbers.length-1;
+        
+        System.out.print("Numbers before: ");
+        for(int i = 0; i <numbers.length; i++){
+            System.out.print(numbers[i] + ", ");
+        }
+        while(x < numbers.length){
+            if(numbers[x] == 0){
+                for(int j = x; j < counter; j++){
+                    numbers[j] = numbers[j+1];
+                }                
+                counter--;
+            }
+            else{
+                x++;
+            }
+        }
+        System.out.println();
+        System.out.print("Numbers after: ");
+        for(int i = 0; i < counter; i++){
+            System.out.print(numbers[i] + ", ");
+        }
+    }
+}
