@@ -1,0 +1,32 @@
+//Matt Carreon
+import java.util.ArrayList;
+import java.util.Random;
+public class PermutationGenerator
+{
+    private ArrayList <Integer> myList;
+    private ArrayList <Integer> permutationList;
+    public ArrayList<Integer> ArrayList(){
+        myList = new ArrayList <Integer>();
+        for(int i = 1; i < 11; i++){
+            myList.add(i);
+        }
+        
+        return myList;
+    }
+    
+    public ArrayList<Integer> nextPermutation(){
+        permutationList = new ArrayList <Integer>();
+        
+        ArrayList();
+        int counter = 8;
+        while(myList.size() > 0){
+            int x = (int) (Math.random()*counter + 1);
+            
+            permutationList.add(myList.get(x));
+            myList.remove(x);
+            counter --;
+        }
+        System.out.println("Permutation: " + permutationList);
+        return permutationList;
+    }
+}
