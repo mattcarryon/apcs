@@ -114,3 +114,21 @@ public class Deck {
         return rtn;
     }
 }
+
+/**
+ * 1. A deck is an array list made up of the cards created.
+ * 
+ * 
+ * 2. There are 6 cards made up of that deck
+ * 
+ * 3. String[] rank = new String[] {"ace", "two", "three", "four","five","six","seven","eight","nine",
+ *     "ten","jack","queen","king"};
+ *     
+ *     String[] suits = new String[] {"diamonds","clubs","hearts","spades"};
+ *     
+ *     int[] values = new int[] {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10};
+ *     
+ * 4. It does matter. The elements in the values array correspond to the order of the ranks.
+ *     
+ * 
+ */
