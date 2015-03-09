@@ -150,4 +150,7 @@ public class Shuffler {
             return true;
         }
     }
+
 }
+    //Question 3:
+    //It would have to generate 0, 1, 2, 3 in that order
